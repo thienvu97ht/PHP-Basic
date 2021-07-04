@@ -36,21 +36,8 @@
 </html>
 
 <?php
+require_once("login.php");
 
 login();
-
-function login()
-{
-    if (!empty($_POST)) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        echo $email . "<br/>" . $password;
-
-        if ($email == "thien.vu97ht123@gmail.com" && $password == "123456") {
-            header("Location: welcome.php");
-        }
-    }
-};
 
 ?>
