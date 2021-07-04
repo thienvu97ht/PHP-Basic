@@ -1,12 +1,15 @@
 <?php
+session_start();
+var_dump($_SESSION);
+
 require_once("register.php");
 
 // var_dump($_COOKIE);
-setcookie("fullname", "", 0, "./");
-setcookie("username", "", 0, "./");
-setcookie("password", "", 0, "./");
-setcookie("email", "", 0, "./");
-setcookie("phone", "", 0, "./");
+// setcookie("fullname", "", 0, "./");
+// setcookie("username", "", 0, "./");
+// setcookie("password", "", 0, "./");
+// setcookie("email", "", 0, "./");
+// setcookie("phone", "", 0, "./");
 
 register();
 ?>

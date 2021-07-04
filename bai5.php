@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+require_once("login.php");
+
+login();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +42,3 @@
 </body>
 
 </html>
-
-<?php
-require_once("login.php");
-
-login();
-
-?>
