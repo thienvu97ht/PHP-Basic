@@ -7,3 +7,5 @@ $i = 100;
 // } else {
 //     echo "$i là số lẻ";
 // }
+
+// Kiểm tra i % 2, %3, other
