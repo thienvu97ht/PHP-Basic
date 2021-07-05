@@ -12,16 +12,7 @@ function register()
 
         // Lưu vào database
         // Tạo kết nối đến database
-        $connect = new mysqli("localhost", "root", "", "php_basic");
-
-        // CHo phép PHP lưu unicode (utf8) - database
-        mysqli_set_charset($connect, "utf8");
-
-        // Kiểm tra kết nối có thành công
-        if ($connect->connect_error) {
-            var_dump($connect->connect_error);
-            die();
-        }
+        require_once("sql_connect.php");
 
         // Thực hiện truy vấn dữ liệu - insert data vào database
         $query = "INSERT INTO STUDENT(FULL_NAME, USER_NAME, PASSWORD, EMAIL, PHONE_NUMBER) 
@@ -29,7 +20,7 @@ function register()
         mysqli_query($connect, $query);
 
         // Đóng kết nối
-        $connect->close();
+        require_once("sql_close.php");
 
         header("Location: bai5.php");
     }
