@@ -8,7 +8,7 @@ function register()
         $email = $_POST["email"];
         $phone = $_POST["phone"];
 
-        echo $fullname;
+        var_dump($fullname);
 
         // Lưu vào database
         // Tạo kết nối đến database
@@ -21,12 +21,11 @@ function register()
         if ($connect->connect_error) {
             var_dump($connect->connect_error);
             die();
-            echo $connect;
         }
 
         // Thực hiện truy vấn dữ liệu - insert data vào database
         $query = "INSERT INTO STUDENT(FULL_NAME, USER_NAME, PASSWORD, EMAIL, PHONE_NUMBER) 
-        VALUES (' $fullname',' $username',' $password',' $email',' $phone')";
+        VALUES ('$fullname','$username','$password','$email','$phone')";
         mysqli_query($connect, $query);
 
         // Đóng kết nối
