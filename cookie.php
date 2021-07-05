@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 require_once("register.php");
 
@@ -12,6 +12,7 @@ require_once("register.php");
 // setcookie("phone", "", 0, "./");
 
 register();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,6 @@ register();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">

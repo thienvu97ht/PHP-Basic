@@ -1,5 +1,4 @@
 <?php
-
 function register()
 {
     if (!empty($_POST)) {
@@ -9,17 +8,29 @@ function register()
         $email = $_POST["email"];
         $phone = $_POST["phone"];
 
-        $_SESSION['fullname'] = $fullname;
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['email'] = $email;
-        $_SESSION['phone'] = $phone;
+        echo $fullname;
 
-        // setcookie("fullname", $fullname, time() + 24 * 60 * 60, "./");
-        // setcookie("username", $username, time() + 24 * 60 * 60, "./");
-        // setcookie("password", $password, time() + 24 * 60 * 60, "./");
-        // setcookie("email", $email, time() + 24 * 60 * 60, "./");
-        // setcookie("phone", $phone, time() + 24 * 60 * 60, "./");
+        // Lưu vào database
+        // Tạo kết nối đến database
+        $connect = new mysqli("localhost", "root", "", "php_basic");
+
+        // CHo phép PHP lưu unicode (utf8) - database
+        mysqli_set_charset($connect, "utf8");
+
+        // Kiểm tra kết nối có thành công
+        if ($connect->connect_error) {
+            var_dump($connect->connect_error);
+            die();
+            echo $connect;
+        }
+
+        // Thực hiện truy vấn dữ liệu - insert data vào database
+        $query = "INSERT INTO STUDENT(FULL_NAME, USER_NAME, PASSWORD, EMAIL, PHONE_NUMBER) 
+        VALUES (' $fullname',' $username',' $password',' $email',' $phone')";
+        mysqli_query($connect, $query);
+
+        // Đóng kết nối
+        $connect->close();
 
         header("Location: bai5.php");
     }
